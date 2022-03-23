@@ -24,8 +24,11 @@ public class CadastroDeProduto {
         
         EntityManagerFactory factory  = Persistence.createEntityManagerFactory("ProdPU");
         EntityManager em = factory.createEntityManager();
-        
+        em.getTransaction().begin();
         em.persist(celularProduto);
+        em.getTransaction().commit();
+        em.close();
+        
         
     }
     
